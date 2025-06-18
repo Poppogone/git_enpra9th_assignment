@@ -1,0 +1,6 @@
+print("input the number")
+a=input()
+print("a is " + a)
+print("input the additional number")
+b=input()
+print("b is " + b)
