@@ -36,6 +36,15 @@ def num_guess_game():
     elif num_difficulty == 2:
         max_attempts = 5
     
+
+    print("Rule1: Number is 3-digits")
+    print("Rule2: Ur digit and position is correct : E")
+    print("Rule3: Only digit is correct(wrong position):B")
+    print("ex) answer is 398")
+    print("If u put 597 -> 1E0B")
+    print("If u put 872 -> 0E1B")
+    print("If u put 893 -> 1E2B")
+
     print("Guess the 3-digits number!")
 
     while attempts < max_attempts:
