@@ -1,7 +1,27 @@
 import random
 
 def give_hint(secret,guess):
-    return
+    E = 0 #Exact match(digit and position)
+    B = 0 #Correct digit, but wrong postion
+
+    secret_check = [False]*3
+    guess_check = [False]*3 #To avoid double counting
+
+    for i in range(3):
+        if guess[i] == secret[i]:
+            E += 1
+            secret_check[i] = True
+            guess_check[i] = True
+    
+    for i in range(3):
+        if guess_check[i] == False:
+            for j in range(3):
+                if secret_check[j] == False and guess[i] == secret[j]:
+                    B += 1
+                    secret_check[j] = True
+                    break
+
+    return f"{E}E{B}B"
 
 def num_guess_game():
     ans = str(random.randint(100,999))
@@ -28,6 +48,7 @@ def num_guess_game():
             break
         else:
             hint = give_hint(ans,guess)
+            print(f"Incorrect! Hint:{hint}")
             #hint
     else:
         print(f"Out of attempts! The correct number was {ans}.")
