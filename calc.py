@@ -1,3 +1,9 @@
+def calc_basic(a,b):
+    print("Addition:a+b="+ str(a+b))
+    print("Substruction:a-b="+ str(a-b))
+    print("Multiplication:a*b="+str(a*b))
+    print("Division:a/b="+ str(a/b))
+
 def calc_gcd(a, b):
     while b:
         a, b = b, a%b
@@ -45,10 +51,7 @@ print("a is " + str(a))
 b=int(input("input the additional number : "))
 print("b is " + str(b))
 
-print("Addition:a+b="+ str(a+b))
-print("Substruction:a-b="+ str(a-b))
-print("Multiplication:a*b="+str(a*b))
-print("Division:a/b="+ str(a/b))
+calc_basic(a,b)
 
 gcd = calc_gcd(a,b)
 print("GCD(a,b) is "+ str(gcd))
