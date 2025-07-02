@@ -9,9 +9,23 @@ def calc_lcm(a,b,gcd_ab):
 
     return a*b/gcd_ab
 
+def prime_factorization(a):
+    prime_list = []
+    i = 2 #minimum prime number
+    while i*i <= a:
+        if a%i == 0:
+            prime_list.append(i)
+            a //= i
+        else:
+            i += 1
+    if a>1:
+        prime_list.append(a)
+        
+    return prime_list
+
 
 def list_prime(a):
-    if a < 2:
+    if a < 2: # a < 2 :No prime nums
         return []
     
     is_prime = [True] * (a + 1)
@@ -41,6 +55,12 @@ print("GCD(a,b) is "+ str(gcd))
 
 lcm = calc_lcm(a,b,gcd)
 print("LCM(a,b) is " + str(lcm))
+
+prime_factors_a = prime_factorization(a)
+prime_factors_b = prime_factorization(b)
+print("prime factors of a is " + str(prime_factors_a))
+print("prime factors of b is " + str(prime_factors_b))
+
 
 primes_a = list_prime(a)
 primes_b = list_prime(b)
