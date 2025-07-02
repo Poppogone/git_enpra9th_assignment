@@ -4,6 +4,12 @@ def calc_gcd(a, b):
     
     return a
 
+def calc_lcm(a,b,gcd_ab):
+    gcd_ab = calc_gcd(a,b)
+
+    return a*b/gcd_ab
+
+
 def list_prime(a):
     if a < 2:
         return []
@@ -11,7 +17,7 @@ def list_prime(a):
     is_prime = [True] * (a + 1)
     is_prime[0] = is_prime[1] = False
 
-    for i in range(2, int(a**0.5) + 1):
+    for i in range(2, int(a**0.5) + 1): #Sieve of Eratosthenes
         if is_prime[i]:
             for j in range(i*i, a+1, i):
                 is_prime[j] = False
@@ -20,11 +26,9 @@ def list_prime(a):
 
     return primes
 
-print("input the number")
-a=int(input())
+a=int(input("input the number : "))
 print("a is " + str(a))
-print("input the additional number")
-b=int(input())
+b=int(input("input the additional number : "))
 print("b is " + str(b))
 
 print("Addition:a+b="+ str(a+b))
@@ -35,7 +39,10 @@ print("Division:a/b="+ str(a/b))
 gcd = calc_gcd(a,b)
 print("GCD(a,b) is "+ str(gcd))
 
-prime_a = list_prime(a)
-prime_b = list_prime(b)
-print("prime number (<=a) is " + str(prime_a))
-print("prime number (<=b) is " + str(prime_b))
+lcm = calc_lcm(a,b,gcd)
+print("LCM(a,b) is " + str(lcm))
+
+primes_a = list_prime(a)
+primes_b = list_prime(b)
+print("prime number (<=a) is " + str(primes_a))
+print("prime number (<=b) is " + str(primes_b))
